@@ -6,7 +6,7 @@ def print(String msg){
     echo ${msg}
 }
 
-def dockerPush(String project, String hubUser, String credentialsId) {
+def dockerPush(String project, String hubUser, String credentialsId){
     sh "docker image build -t ${hubUser}/${project}:beta-${env.BRANCH_NAME}-${env.BUILD_NUMBER} ."
     withCredentials([usernamePassword(
             credentialsId: credentialsId,

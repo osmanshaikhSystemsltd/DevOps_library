@@ -2,11 +2,11 @@
 
 import org.apache.commons.lang.StringUtils
 
-def print(String msg){
+def printFn(String msg){
     echo ${msg}
 }
 
-def dockerPush(String project, String hubUser, String credentialsId){
+def dockerPushFn(String project, String hubUser, String credentialsId){
     sh "docker image build -t ${hubUser}/${project}:beta-${env.BRANCH_NAME}-${env.BUILD_NUMBER} ."
     withCredentials([usernamePassword(
             credentialsId: credentialsId,

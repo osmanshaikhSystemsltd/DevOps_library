@@ -1,3 +1,3 @@
-def call(){
-    echo 'hello from the script'
+def call(String msg){
+    echo '${msg}'
 }

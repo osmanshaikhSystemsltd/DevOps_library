@@ -6,7 +6,7 @@ def call(String project, String hubUser, String credentialsId) {
         sh "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no osmanshaikh@20.54.72.51 'pwd'"
         sh "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no osmanshaikh@20.54.72.51 'ls'"
         sh "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no osmanshaikh@20.54.72.51 'docker ps'"        
-        sh "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no osmanshaikh@20.54.72.51 'docker image build -t ${hubUser}/${project}:beta-${env.BRANCH_NAME}-${env.BUILD_NUMBER} .'"
+        sh "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no osmanshaikh@20.54.72.51 'docker image build -t ${hubUser}/${project}:beta-"branch"-${env.BUILD_NUMBER} $WORKSPACE'"
         withCredentials([usernamePassword(
                 credentialsId: credentialsId,
                 usernameVariable: "USER",

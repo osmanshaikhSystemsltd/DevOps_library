@@ -1,5 +1,5 @@
 def call(String cmd, String creds) {
-    sshagent([${creds}]) {
-        sh ${cmd}
+    sshagent([creds]) {
+        sh cmd
     }
 }
